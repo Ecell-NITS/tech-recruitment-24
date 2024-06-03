@@ -23,7 +23,7 @@ export const sendOtp = async (req: Request, res: Response) => {
       res.status(400).json({ message: "OTP not sent" });
       return;
     }
-    await sendEmail(email, "OTP for verification", `Your OTP is ${otp}. It will expire in 5 minutes.`);
+    sendEmail(email, "OTP for verification", `Your OTP is ${otp}. It will expire in 5 minutes.`,"");
     res.status(200).json({ message: "OTP sent successfully" });
     setTimeout(async () => {
       await prisma.otp.delete({

@@ -16,7 +16,7 @@ export const createTechApplication = async (req: Request, res: Response) => {
     res.status(400).json({ message: "You have already applied" });
     return;
   }
-  if(domain !== "Web" && domain !== "Flutter" && domain !== "UI"){
+  if (domain !== "Web" && domain !== "Flutter" && domain !== "UI") {
     res.status(400).json({ message: "Invalid domain" });
     return;
   }
@@ -35,8 +35,11 @@ export const createTechApplication = async (req: Request, res: Response) => {
       })
       .then((data) => {
         const sunject = "Tech Application";
-        const text = `Thank you for applying to the tech team. We will get back to you soon.`;
-        sendEmail(email, sunject, text);
+        const text = `Thank you for applying to the Technical team of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you can join our WhatsApp group  https://discord.gg/2Y9z8e8J`;
+        const html = `
+        <h2>Thank you for applying to the Technical team of E-cell NIT Silchar.</h2>
+        <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="https://discord.gg/2Y9z8e8J">Ecell Tech Team Applicants 24</a></strong></p>`;
+        sendEmail(email, sunject, text, html);
         res.json(data);
       })
       .catch((err) => {
@@ -79,4 +82,14 @@ export const getMyApplication = async (req: Request, res: Response) => {
     },
   });
   res.json(myApplications);
+};
+export const deleteTechApplication = async (req: Request, res: Response) => {
+  const { email } = req.body;
+  const deletedApplication = await prisma.techApplication.delete({
+    where: {
+      email: email,
+    },
+  });
+  sendEmail(email, "Application Deleted", "Your application has been deleted.If this was not you, contact the team immediately", "");
+  res.json(deletedApplication);
 }

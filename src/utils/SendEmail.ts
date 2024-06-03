@@ -8,12 +8,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = (to, subject, text) => {
+const sendEmail = (to, subject, text,html) => {
   const mailOptions = {
     from: process.env.EMAIL_ECELL,
     to: to,
     subject: subject,
     text: text,
+    html:html
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

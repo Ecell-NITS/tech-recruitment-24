@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createTechApplication,
+  deleteTechApplication,
   getMyApplication,
   getTechApplications,
 } from "src/controllers/TechApply";
@@ -17,5 +18,7 @@ router.post("/apply", CheckEmail,verifyOtp , createTechApplication);
 router.post("/apply/sendotp",sendOtp);
 
 router.get("/application",verifyOtp ,getMyApplication);
+
+router.delete("/application/delete",verifyOtp,deleteTechApplication);
 
 export default router;
