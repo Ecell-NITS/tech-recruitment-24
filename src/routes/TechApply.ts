@@ -17,7 +17,7 @@ router.post("/apply", CheckEmail,verifyOtp , createTechApplication);
 
 router.post("/apply/sendotp",sendOtp);
 
-router.get("/application",verifyOtp ,getMyApplication);
+router.get("/myapplication",verifyOtp ,getMyApplication);
 
 router.delete("/application/delete",verifyOtp,deleteTechApplication);
 

@@ -33,7 +33,7 @@ export const sendOtp = async (req: Request, res: Response) => {
       });
     }, 60000*5);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
