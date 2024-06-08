@@ -35,10 +35,10 @@ export const createTechApplication = async (req: Request, res: Response) => {
       })
       .then((data) => {
         const sunject = "Tech Application";
-        const text = `Thank you for applying to the Technical team of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you can join our WhatsApp group  https://discord.gg/2Y9z8e8J`;
+        const text = `Thank you for applying to the Technical team of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you can join our WhatsApp group  https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM`;
         const html = `
         <h2>Thank you for applying to the Technical team of E-cell NIT Silchar.</h2>
-        <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="https://discord.gg/2Y9z8e8J">Ecell Tech Team Applicants 24</a></strong></p>`;
+        <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM">Ecell Tech Team Applicants 24</a></strong></p>`;
         sendEmail(email, sunject, text, html);
         res.json(data);
       })

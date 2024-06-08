@@ -26,6 +26,14 @@ export const sendOtp = async (req: Request, res: Response) => {
     sendEmail(email, "OTP for verification", `Your OTP is ${otp}. It will expire in 5 minutes.`,"");
     res.status(200).json({ message: "OTP sent successfully" });
     setTimeout(async () => {
+      const otpData = await prisma.otp.findFirst({
+        where: {
+          email,
+        },
+      });
+      if (!otpData) {
+        return;
+      }
       await prisma.otp.delete({
         where: {
           id: otpSent.id,
