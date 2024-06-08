@@ -35,7 +35,7 @@ export const createApplication = async (req: Request, res: Response) => {
   };
   if (domain === "Event") {
     team = {
-      teamName: "Event",
+      teamName: "Event Management",
       teamLink: "https://discord.gg/2Y9z8e8J",
     };
   } else if (domain === "Content") {
@@ -65,7 +65,7 @@ export const createApplication = async (req: Request, res: Response) => {
     };
   } else if (domain === "Collaboration") {
     team = {
-      teamName: "Collaboration",
+      teamName: "Collaboration & Outreach",
       teamLink: "https://discord.gg/2Y9z8e8J",
     };
   }
@@ -90,11 +90,11 @@ export const createApplication = async (req: Request, res: Response) => {
         <h2>Thank you for applying to the ${team.teamName} team of E-cell NIT Silchar.</h2>
         <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="${team.teamLink}">${team.teamName}</a></strong></p>`;
         sendEmail(email, sunject, text, html);
-        res.json(data);
+        res.json(data).status(200);
       })
       .catch((err) => {
         console.log(err);
-        res.json(err);
+        res.json(err).status(500);
       });
   } catch (error) {
     console.log(error);

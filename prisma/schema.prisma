@@ -40,9 +40,9 @@ model Otp {
 
 model Application {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
+  email   String   
   name    String  
-  scholarId String @unique
+  scholarId String 
   number  String
   domain    Team @default(Marketing)
   resumeUrl String
