@@ -133,25 +133,11 @@ export const existApplication = async (req: Request, _res: Response) => {
 
 export const getMyApplication = async (req: Request, res: Response) => {
   const { email } = req.body;
-  const myApplications = await prisma.application.findUnique({
+  const myApplications = await prisma.application.findMany({
     where: {
       email,
     },
   });
   res.json(myApplications);
 };
-export const deleteApplication = async (req: Request, res: Response) => {
-  const { email } = req.body;
-  const deletedApplication = await prisma.application.delete({
-    where: {
-      email: email,
-    },
-  });
-  sendEmail(
-    email,
-    "Application Deleted",
-    "Your application has been deleted.If this was not you, contact the team immediately",
-    ""
-  );
-  res.json(deletedApplication);
-};
+

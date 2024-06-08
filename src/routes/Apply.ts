@@ -1,7 +1,6 @@
 import express from "express";
 import {
   createApplication,
-  deleteApplication,
   getMyApplication,
   getApplications,
 } from "src/controllers/Apply";
@@ -19,7 +18,6 @@ router.post("/apply/sendotp",sendOtp);
 
 router.get("/myapplication",verifyOtp ,getMyApplication);
 
-router.delete("/application/delete",verifyOtp,deleteApplication);
 
 
 export default router;
