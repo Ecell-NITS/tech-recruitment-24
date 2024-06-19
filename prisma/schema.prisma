@@ -44,7 +44,7 @@ model Application {
   name    String  
   scholarId String 
   number  String
-  domain    Team @default(Marketing)
+  teams    Team[] @default([])
   resumeUrl String
   WhyEcell String 
 }
