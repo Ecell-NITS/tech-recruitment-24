@@ -8,13 +8,12 @@ export const getApplications = async (_req: Response, res: Request) => {
 };
 
 export const createApplication = async (req: Request, res: Response) => {
-  const { name, email, scholarId, resumeUrl, WhyEcell, number, teams } =
+  const { name, email, scholarId, WhyEcell, number, teams ,contribution} =
     req.body;
   if (
     !name ||
     !email ||
     !scholarId ||
-    !resumeUrl ||
     !WhyEcell ||
     !number ||
     !teams
@@ -74,10 +73,10 @@ export const createApplication = async (req: Request, res: Response) => {
           name,
           email,
           scholarId,
-          resumeUrl,
           number,
           teams,
           WhyEcell,
+          contribution
         },
       })
       .then((data) => {
@@ -101,7 +100,7 @@ export const createApplication = async (req: Request, res: Response) => {
   }
 };
 export const existApplication = async (req: Request, _res: Response) => {
-  const { email, number, scholarId, resumeUrl} = req.body;
+  const { email, number, scholarId} = req.body;
   const Application = await prisma.application.findFirst({
     where: {
       OR: [
@@ -113,10 +112,7 @@ export const existApplication = async (req: Request, _res: Response) => {
         },
         {
           scholarId: scholarId,
-        },
-        {
-          resumeUrl: resumeUrl,
-        },
+        }
       ],
     },
   });

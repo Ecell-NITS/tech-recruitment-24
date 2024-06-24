@@ -45,7 +45,7 @@ model Application {
   scholarId String 
   number  String
   teams    Team[] @default([])
-  resumeUrl String
+  contribution String? 
   WhyEcell String 
 }
 
