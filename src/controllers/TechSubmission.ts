@@ -77,6 +77,6 @@ export const verifyTechApplication = async (req: Request, res: Response) => {
         return res.json(techApplication);
     }
     else{
-        return res.json({message:"Application not found"}).status(404);
+        return res.status(404).json({message:"Application not found"});
     }
 }
