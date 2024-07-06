@@ -8,6 +8,6 @@ const router = express.Router();
 router.post("/sendOtp", sendOtp);
 router.post("/",createTechSubmission);
 router.get("/",getTechSubmissions);
-router.get("/checkApplication",verifyOtp,verifyTechApplication);
+router.post("/checkApplication",verifyOtp,verifyTechApplication);
 
 export default router;
