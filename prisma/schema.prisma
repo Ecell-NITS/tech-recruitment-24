@@ -13,48 +13,59 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model TechApplication {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
-  name    String  
-  scholarId String @unique
-  number  String
-  domain    Domain @default(Web)
-  resumeUrl String
-  githubUrl String? 
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  email          String           @unique
+  name           String
+  scholarId      String           @unique
+  number         String
+  domain         Domain           @default(Web)
+  resumeUrl      String
+  githubUrl      String?
 }
 
-enum Domain{
+enum Domain {
   Web
   Flutter
   UI
 }
 
 model Otp {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   
-  otp     String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  otp       String
   createdAt DateTime @default(now())
 }
 
 model Application {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   
-  name    String  
-  scholarId String 
-  number  String
-  teams    Team[] @default([])
-  contribution String? 
-  WhyEcell String 
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  email        String
+  name         String
+  scholarId    String
+  number       String
+  teams        Team[]  @default([])
+  contribution String?
+  WhyEcell     String
 }
 
-enum Team{
-  Event   
-  Content 
+enum Team {
+  Event
+  Content
   Curation
   Design
   Marketing
   Publicity
   Collaboration
+}
+
+model TechSubmission {
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  email     String          @unique
+  scholarId String          @unique
+  name      String
+  domain    Domain          @default(Web)
+  resumeUrl String
+  githubUrl String
+  liveUrl   String?
+  videoUrl  String?
 }

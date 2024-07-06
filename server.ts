@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import TechApply  from "./src/routes/TechApply";
 import Apply  from "./src/routes/Apply";
+import TechSubmission  from "./src/routes/TechSubmission";
 import { verifyOtp } from "src/utils/Otp";
 import morgan from "morgan";
 
@@ -24,4 +25,5 @@ app.get("/",(_req,res)=>{
 
 app.use("/tech",TechApply)
 app.use("/",Apply)
+app.use("/submit",TechSubmission)
 app.post("/verifyotp",verifyOtp);
