@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Backend for ecell tech recruitment",
   "scripts": {
+    "start": "node dist/server.js",
     "dev": "tsx watch server.ts",
-    "build": "pnpm compile && pnpm esbuild",
+    "build": "prisma generate && pnpm compile && pnpm esbuild",
     "esbuild": "node esbuild.mjs",
     "compile": "tsc",
     "lint": "eslint . --ext .ts --fix",

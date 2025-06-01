@@ -20,7 +20,7 @@ app.listen(port, () => {
 });
 
 app.get("/",(_req,res)=>{
-  res.send({message:"This is the recruitment api for the tech team of ecell nits. Please use the /tech route to access the endpoints.",status:200})
+  res.send({message:"This is the recruitment api for the 2024-28 team of ecell nits. Please use the /tech route to access the tech endpoints.",status:200})
 })
 
 app.use("/tech",TechApply)
