@@ -35,10 +35,12 @@ export const createTechApplication = async (req: Request, res: Response) => {
       })
       .then((data) => {
         const sunject = "Tech Application";
-        const text = `Thank you for applying to the Technical team of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you can join our WhatsApp group  https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM`;
+        const text = `Thank you for applying to the Technical team of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you can join our WhatsApp group  https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM Please click on the link above to join the WhatsApp group.`;
         const html = `
         <h2>Thank you for applying to the Technical team of E-cell NIT Silchar.</h2>
-        <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM">Ecell Tech Team Applicants 24</a></strong></p>`;
+        <p>We will get back to you soon.In the meanwhile, you can join our WhatsApp group <strong> <a href="https://chat.whatsapp.com/JtuFnzCMzcfDl8ZH5m4wKM">Ecell Tech Team Applicants 25</a></strong></p>
+        <br>
+        <p style="font-style: italic; font-size: 1.15em;">Please click on the link above to join the WhatsApp group.</p>`;
         sendEmail(email, sunject, text, html);
         res.json(data);
       })
@@ -90,6 +92,6 @@ export const deleteTechApplication = async (req: Request, res: Response) => {
       email: email,
     },
   });
-  sendEmail(email, "Application Deleted", "Your application has been deleted.If this was not you, contact the team immediately", "");
+  sendEmail(email, "Application Deleted", "Your application has been deleted. If this was not you, contact the team immediately", "");
   res.json(deletedApplication);
 }
