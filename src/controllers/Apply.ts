@@ -60,6 +60,10 @@ export const createApplication = async (req: Request, res: Response) => {
     {
       teamName:"Curation",
       teamLink:"https://chat.whatsapp.com/KRlRL4D2K88EzgL5cGIQdc"
+    },
+    {
+      teamName:"Videography",
+      teamLink:"https://chat.whatsapp.com/KRlRL4D2K88EzgL5cGIQdc"
     }
   ];
   const yourTeams = availableTeams.filter((team) =>
