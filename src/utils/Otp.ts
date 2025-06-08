@@ -34,7 +34,7 @@ export const sendOtp = async (req: Request, res: Response) => {
       if (!otpData) {
         return;
       }
-      await prisma.otp.delete({
+      await prisma.otp.deleteMany({
         where: {
           id: otpSent.id,
         },
