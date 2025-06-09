@@ -35,35 +35,35 @@ export const createApplication = async (req: Request, res: Response) => {
   const availableTeams = [
     {
       teamName: "Marketing",
-      teamLink: "https://chat.whatsapp.com/FEQssVGXlHE9mCuHV20Koo",
+      teamLink: "https://chat.whatsapp.com/LXuL0am0rGKJOpxYROrWO9",
     },
     {
       teamName: "Content",
-      teamLink: "https://chat.whatsapp.com/GlWVKkWotKu6L750tQoJak",
+      teamLink: "https://chat.whatsapp.com/Fc4GwUuHWWY0xBGLgoaZAF",
     },
     {
       teamName: "Design",
-      teamLink: "https://chat.whatsapp.com/BvLSzQjyqAF7A5WmwvNdo8",
+      teamLink: "https://chat.whatsapp.com/JpQ7mHs06n528askuLofRs",
     },
     {
       teamName: "Publicity",
-      teamLink: "https://chat.whatsapp.com/KGdzzQOZBilHHEyveN1pds",
+      teamLink: "https://chat.whatsapp.com/JBaRxMWcQuv1d65wI1FeDF",
     },
     {
       teamName:"Event",
-      teamLink:"https://chat.whatsapp.com/BlUmN5ywJzrBRPKzA12heu"
+      teamLink:"https://chat.whatsapp.com/HennCaI5VPVDO9bAFjRf7n"
     },
     {
       teamName:"Collaboration",
-      teamLink:"https://chat.whatsapp.com/F2NJ25pjp7RAJAeVGhY3Y9"
+      teamLink:"https://chat.whatsapp.com/IjF1PCwL8605uoAWTpk1UJ"
     },
     {
       teamName:"Curation",
-      teamLink:"https://chat.whatsapp.com/KRlRL4D2K88EzgL5cGIQdc"
+      teamLink:"https://chat.whatsapp.com/GrPPQxcd8IJ1gJJC71o0Lm"
     },
     {
       teamName:"Videography",
-      teamLink:"https://chat.whatsapp.com/KRlRL4D2K88EzgL5cGIQdc"
+      teamLink:"https://chat.whatsapp.com/Hpqgu9a5Wo87G5EqlbPZh9"
     }
   ];
   const yourTeams = availableTeams.filter((team) =>
