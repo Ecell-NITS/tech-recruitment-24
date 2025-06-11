@@ -6,8 +6,8 @@ const CheckEmail = async (req: Response, res: Request,next:NextFunction) => {
   const isValid = emailRegex.test(email);
   if (!isValid) {
     res.status(400).json({ message: "Invalid email" });
-  }else if(!email.includes("nits.ac.in") || !email.includes("_ug_23")){
-    res.status(400).json({ message: "This application is only for NITS's students of batch 2023-2027" });
+  }else if(!email.includes("nits.ac.in") || !email.includes("_ug_24")){
+    res.status(400).json({ message: "This application is only for NITS's students of batch 2024-2028" });
   }else
   next();
 };
