@@ -85,13 +85,13 @@ export const createApplication = async (req: Request, res: Response) => {
       })
       .then((data) => {
         const sunject = "Application for joining E-cell NIT Silchar";
-        const text = `Thank you for applying to the exciting teams of E-cell NIT Silchar. We will get back to you soon.In the meanwhile, you should join our WhatsApp group of the teams you have applied for.
-        ${yourTeams.map((team) => `<a href="${team.teamLink}"><strong>${team.teamName}</strong></a>`)}
+        const text = `Thank you for applying to the exciting teams of E-cell NIT Silchar. We will get back to you soon. In the meanwhile, you should join our WhatsApp group of the teams you have applied for.
+        ${yourTeams.map((team, index) => `<a href="${team.teamLink}"><strong>${index+1}${") "}${team.teamName}${" Team Applicants"}</strong></a>`)}
         Please click on the links above to join respective WhatsApp groups`;
         const html = `
         <h2>Thank you for applying to the exciting teams of E-cell NIT Silchar.</h2>
-        <p>We will get back to you soon.In the meanwhile, you should join our WhatsApp group of the teams you have applied for.</p>
-        ${yourTeams.map((team) => `<a href="${team.teamLink}"><strong>${team.teamName}</strong></a> <br>`)}
+        <p>We will get back to you soon. In the meanwhile, you should join our WhatsApp group of the teams you have applied for.</p>
+        ${yourTeams.map((team, index) => `<a href="${team.teamLink}"><strong>${index+1}${") "}${team.teamName}${" Team Applicants"}</strong></a><br>`).join('')}
         <br>
         <p style="font-style: italic; font-size: 1.15em;">Please click on the links above to join respective WhatsApp groups.</p>`;
         sendEmail(email, sunject, text, html);
