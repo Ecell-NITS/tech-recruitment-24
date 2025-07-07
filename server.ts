@@ -20,8 +20,9 @@ app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
+
 function reloadWebsite() {
-  axios.get("https://tech-recruitment-24-k2j0.onrender.com")
+  axios.get("https://tech-recruitment-24-0upw.onrender.com")
     .then(response => {
       console.log("Time Noted for Website Update:", response.status);
     })
