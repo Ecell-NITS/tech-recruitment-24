@@ -36,10 +36,10 @@ export const createTechSubmission = async (req: Request, res: Response) => {
         })
         .then((data) => {
             const sunject = "Project Submission Acknowledgement";
-            const text = `You have submitted your project successfully. We will get back to you soon. This is what was recived from you: Name:\n ${name}\n Email: ${email}\n Scholar ID: ${scholarId}\nDomain: ${domain}\n Github repo: ${githubUrl}\n ${liveUrl? "Demo Live Link:"+liveUrl+"\n":""} ${videoUrl? "Demo Live Link:"+videoUrl:""}`;
+            const text = `You have submitted your project successfully. We will get back to you soon. This is what was recived from you: Name:\n ${name}\n Email: ${email}\n Scholar ID: ${scholarId}\nDomain: ${domain}\n Project Link: ${githubUrl}\n ${liveUrl? "Demo Live Link:"+liveUrl+"\n":""} ${videoUrl? "Demo Live Link:"+videoUrl:""}`;
             const html = `
             <h2>You have submitted your project successfully.</h2>
-            <p>We will get back to you soon.This is what was recived from you:<br> Name: ${name}<br> Email: ${email}<br> Scholar ID: ${scholarId}<br>Domain: ${domain}<br> Github repo: ${githubUrl}<br> ${liveUrl? "Demo Live Link:"+liveUrl+"<br>":""} ${videoUrl? "Demo Live Link:"+videoUrl:""}</p>`;
+            <p>We will get back to you soon.This is what was recived from you:<br> Name: ${name}<br> Email: ${email}<br> Scholar ID: ${scholarId}<br>Domain: ${domain}<br> Project Link: ${githubUrl}<br> ${liveUrl? "Demo Live Link:"+liveUrl+"<br>":""} ${videoUrl? "Demo Live Link:"+videoUrl:""}</p>`;
             sendEmail(email, sunject, text, html);
             return res.json({message:"Submission successful",data:data}).status(200);
         })
